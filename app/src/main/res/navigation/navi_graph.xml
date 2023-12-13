@@ -28,5 +28,9 @@
             android:name="editMovie"
             app:argType="boolean"
             android:defaultValue="false" />
+        <argument
+            android:name="readMovie"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
 </navigation>

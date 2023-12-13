@@ -19,7 +19,7 @@ import br.edu.ifsp.scl.moviesmanager.databinding.FragmentListMovieBinding
 import br.edu.ifsp.scl.moviesmanager.model.entity.Movie
 import br.edu.ifsp.scl.moviesmanager.view.adapter.MovieAdapter
 import br.edu.ifsp.scl.moviesmanager.view.adapter.OnMovieClickListener
-import br.edu.ifsp.scl.sdm.todolist.controller.MovieViewModel
+import br.edu.ifsp.scl.moviesmanager.viewModel.MovieViewModel
 
 class ListMovieFragment : Fragment(), OnMovieClickListener{
 
@@ -49,7 +49,6 @@ class ListMovieFragment : Fragment(), OnMovieClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setFragmentResultListener(MOVIE_FRAGMENT_REQUEST_KEY) { requestKey, bundle ->
             if (requestKey == MOVIE_FRAGMENT_REQUEST_KEY) {
                 val movie = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -84,7 +83,9 @@ class ListMovieFragment : Fragment(), OnMovieClickListener{
                 movieList.add(movie)
                 movieAdapter.notifyItemChanged(index)
             }
-        }}
+        }
+        movieViewModel.getAllMovies()
+        }
 
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -94,7 +95,7 @@ class ListMovieFragment : Fragment(), OnMovieClickListener{
                 listRv.layoutManager = LinearLayoutManager(context)
                 listRv.adapter = movieAdapter
                 btnAdd.setOnClickListener {
-                    navController.navigate(ListMovieFragmentDirections.actionListMovieFragmentToViewMovieFragment(null, editMovie=false))
+                    navController.navigate(ListMovieFragmentDirections.actionListMovieFragmentToViewMovieFragment(null, editMovie=false, readMovie = false))
                 }
             }
 
@@ -103,15 +104,24 @@ class ListMovieFragment : Fragment(), OnMovieClickListener{
         }
 
     override fun onMovieClick(position: Int) {
-        TODO("Not yet implemented")
+        navigateToMovieFragment(position, false, true)
     }
 
     override fun onRemoveMovieMenuItemClick(position: Int) {
-        TODO("Not yet implemented")
+        movieViewModel.delete(movieList[position])
+        movieList.removeAt(position)
+        movieAdapter.notifyItemRemoved(position)
     }
 
     override fun onEditMovieMenuItemClick(position: Int) {
-        TODO("Not yet implemented")
+        navigateToMovieFragment(position, true, false)
+    }
+    private fun navigateToMovieFragment(position: Int, editMovie: Boolean, readMovie: Boolean) {
+        movieList[position].also {
+            navController.navigate(
+                ListMovieFragmentDirections.actionListMovieFragmentToViewMovieFragment(it, editMovie, readMovie)
+            )
+        }
     }
 
 

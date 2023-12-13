@@ -43,8 +43,16 @@ class ViewMovieFragment : Fragment() {
                 commonLayout.productionEt.setText(movie.production)
                 commonLayout.urlImgEt.setText(movie.url)
                 navigationArgs.editMovie.also { editMovie ->
-                    commonLayout.titleEt.isEnabled = editMovie
+                    if(editMovie){
+                        commonLayout.titleEt.isEnabled = false
+                    }
                     commonLayout.watchedCb.isEnabled = editMovie
+                    commonLayout.scoreEt.isEnabled = editMovie
+                    commonLayout.timeEt.isEnabled = editMovie
+                    commonLayout.genreSp.isEnabled = editMovie
+                    commonLayout.releaseEt.isEnabled = editMovie
+                    commonLayout.productionEt.isEnabled = editMovie
+                    commonLayout.urlImgEt.isEnabled = editMovie
                     commonLayout.saveBt.visibility = if (editMovie) VISIBLE else GONE
                 }
 

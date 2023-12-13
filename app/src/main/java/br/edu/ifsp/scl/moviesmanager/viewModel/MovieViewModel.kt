@@ -1,9 +1,11 @@
-package br.edu.ifsp.scl.sdm.todolist.controller
+package br.edu.ifsp.scl.moviesmanager.viewModel
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.room.Room
 import br.edu.ifsp.scl.moviesmanager.model.database.MovieDatabase
@@ -12,7 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MovieViewModel (application: Application): ViewModel() {
+class MovieViewModel (application: Application): AndroidViewModel(application) {
     private val movieDaoImpl = Room.databaseBuilder(
         application.applicationContext,
         MovieDatabase::class.java,
@@ -51,11 +53,18 @@ class MovieViewModel (application: Application): ViewModel() {
     }
 
 
-    companion object{
-        val MovieViewModelFactory = object: ViewModelProvider.Factory{
-            override fun <T: ViewModel> create(modelClass: Class<T>, extras: CreationExtras):T {
-                MovieViewModel(checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])) as T
-                return super.create(modelClass, extras)
+    companion object {
+        val MovieViewModelFactory = object : ViewModelProvider.Factory {
+
+
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel> create(
+                modelClass: Class<T>,
+                extras: CreationExtras
+            ): T {
+                val application = checkNotNull(extras[APPLICATION_KEY])
+
+                return  MovieViewModel(application) as T
             }
         }
     }

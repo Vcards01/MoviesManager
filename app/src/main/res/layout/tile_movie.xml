@@ -7,14 +7,13 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="130dp"
         android:layout_margin="5dp"
         app:cardElevation="8dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/secondary">
+            android:layout_height="match_parent"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,6 +69,6 @@
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+
 </LinearLayout>
