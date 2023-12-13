@@ -21,14 +21,14 @@ class MovieViewModel (application: Application): ViewModel() {
 
     val moviesMld = MutableLiveData<List<Movie>>()
 
-    fun insertTask(movie: Movie)
+    fun insert(movie: Movie)
     {
         CoroutineScope(Dispatchers.IO).launch {
             movieDaoImpl.insert(movie)
         }
     }
 
-    fun getTasks()
+    fun getAllMovies()
     {
         CoroutineScope(Dispatchers.IO).launch {
             val movies = movieDaoImpl.getAllMovies()
@@ -36,14 +36,14 @@ class MovieViewModel (application: Application): ViewModel() {
         }
     }
 
-    fun editTask(movie: Movie)
+    fun update(movie: Movie)
     {
         CoroutineScope(Dispatchers.IO).launch {
             movieDaoImpl.update(movie)
         }
     }
 
-    fun removeTask(movie: Movie)
+    fun delete(movie: Movie)
     {
         CoroutineScope(Dispatchers.IO).launch {
             movieDaoImpl.delete(movie)

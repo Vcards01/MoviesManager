@@ -15,7 +15,7 @@ data class Movie(
     var production: String,
     var duration: Long,
     var watched: Int = INT_BOOL_FALSE,
-    var stars: Int = INT_INVALID_SCORE,
+    var score: Int = INT_INVALID_SCORE,
     var genre: String,
     var url: String,
 ): Parcelable {

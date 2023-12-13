@@ -10,4 +10,7 @@
     <string name="releaseYears">Ano de lançamento</string>
     <string name="title">Titulo</string>
     <string name="salvar_filme">Salvar Filme</string>
+    <string name="capa_do_filme">Capa do Filme</string>
+    <string name="remover_filme">Remover Filme</string>
+    <string name="editar_filmes">Editar Filmes</string>
 </resources>
