@@ -36,7 +36,7 @@ class ViewMovieFragment : Fragment() {
             with(fvm) {
                 commonLayout.titleEt.setText(movie.title)
                 commonLayout.watchedCb.isChecked = movie.watched == INT_BOOL_TRUE
-                commonLayout.scoreEt.setText(movie.stars.toString())
+                commonLayout.scoreEt.setText(movie.score.toString())
                 commonLayout.timeEt.setText(movie.duration.toString())
                 commonLayout.genreSp.setSelection(getGenrePosition(movie.genre))
                 commonLayout.releaseEt.setText(movie.releaseYears)
