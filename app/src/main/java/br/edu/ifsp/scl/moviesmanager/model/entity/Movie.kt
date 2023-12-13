@@ -10,10 +10,10 @@ import kotlinx.parcelize.Parcelize
 @Entity
 data class Movie(
     @PrimaryKey
-    var name: String,
+    var title: String,
     var releaseYears: String,
     var production: String,
-    var minutes: Long,
+    var duration: Long,
     var watched: Int = INT_BOOL_FALSE,
     var stars: Int = INT_INVALID_SCORE,
     var genre: String,

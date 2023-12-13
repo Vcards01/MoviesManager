@@ -19,7 +19,7 @@
 
 
         <EditText
-            android:id="@+id/eTtitle"
+            android:id="@+id/titleEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -57,7 +57,7 @@
             android:textColor="@color/primary"/>
 
         <EditText
-            android:id="@+id/eTStars"
+            android:id="@+id/scoreEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
@@ -75,7 +75,7 @@
             android:textColor="@color/primary"/>
 
         <EditText
-            android:id="@+id/eTMinutes"
+            android:id="@+id/timeEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/primary"
@@ -90,7 +90,7 @@
             android:textColor="@color/primary"/>
 
         <Spinner
-            android:id="@+id/editSpinnerGenre"
+            android:id="@+id/genreSp"
             android:entries="@array/genres"
             android:layout_width="match_parent"
             android:layout_height="70dp"
@@ -108,7 +108,7 @@
             android:textColor="@color/primary"/>
 
         <EditText
-            android:id="@+id/eTReleaseYears"
+            android:id="@+id/releaseEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -125,7 +125,7 @@
             android:textColor="@color/primary"/>
 
         <EditText
-            android:id="@+id/eTProduction"
+            android:id="@+id/productionEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -141,12 +141,22 @@
             android:textColor="@color/primary"/>
 
         <EditText
-            android:id="@+id/eTurlImg"
+            android:id="@+id/urlImgEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:inputType="textUri"
             android:textColor="@color/primary" />
+
+        <Button
+            android:id="@+id/saveBt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/secondary"
+            android:text="@string/salvar_filme"
+            android:layout_marginBottom="25dp"
+            />
 
 
     </LinearLayout>
