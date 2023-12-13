@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(amb.toolbar)
         supportActionBar?.apply {
             title = "MoviesManager"
-            subtitle = "Watched movies"
         }
     }
 }

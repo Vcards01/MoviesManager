@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import br.edu.ifsp.scl.moviesmanager.R
 import br.edu.ifsp.scl.moviesmanager.databinding.FragmentListMovieBinding
 
 class ListMovieFragment : Fragment(){
@@ -14,6 +17,9 @@ class ListMovieFragment : Fragment(){
 
     private val binding get() = _binding!!
 
+    private val navController: NavController by lazy {
+        findNavController()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +30,12 @@ class ListMovieFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentListMovieBinding.inflate(inflater, container, false)
+
+        _binding?.apply {
+            btnAdd.setOnClickListener{
+                navController.navigate(R.id.action_listMovieFragment_to_viewMovieFragment)
+            }
+        }
 
         return binding.root
 

@@ -9,5 +9,14 @@
         android:id="@+id/listMovieFragment"
         android:name="br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment"
         android:label="fragment_list_movie"
-        tools:layout="@layout/fragment_list_movie" />
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment_to_viewMovieFragment"
+            app:destination="@id/viewMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMovieFragment"
+        android:name="br.edu.ifsp.scl.moviesmanager.view.ViewMovieFragment"
+        android:label="fragment_view_movie"
+        tools:layout="@layout/fragment_view_movie" />
 </navigation>

@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">MoviesManager</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saveBt">Salvar Filme</string>
+    <string name="urlImgTV">URL Capa</string>
+    <string name="genres">Gênero</string>
+    <string name="score">Nota</string>
+    <string name="watched">Assistido</string>
+    <string name="minutes">Duração</string>
+    <string name="production">Produtora</string>
+    <string name="releaseYears">Ano de lançamento</string>
+    <string name="title">Titulo</string>
 </resources>
