@@ -17,6 +17,7 @@ import br.edu.ifsp.scl.moviesmanager.model.entity.Movie
 import br.edu.ifsp.scl.moviesmanager.model.entity.Movie.Companion.INT_BOOL_FALSE
 import br.edu.ifsp.scl.moviesmanager.model.entity.Movie.Companion.INT_BOOL_TRUE
 import br.edu.ifsp.scl.moviesmanager.model.entity.Movie.Companion.INT_INVALID_SCORE
+import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.EXTRA_ACTION
 import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.EXTRA_MOVIE
 import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.MOVIE_FRAGMENT_REQUEST_KEY
 
@@ -43,8 +44,8 @@ class ViewMovieFragment : Fragment() {
                 commonLayout.productionEt.setText(movie.production)
                 commonLayout.urlImgEt.setText(movie.url)
                 navigationArgs.editMovie.also { editMovie ->
-                    if(editMovie){
-                        commonLayout.titleEt.isEnabled = false
+                    navigationArgs.readMovie.also { readMovie->
+                        commonLayout.titleEt.isEnabled = !(editMovie || readMovie)
                     }
                     commonLayout.watchedCb.isEnabled = editMovie
                     commonLayout.scoreEt.isEnabled = editMovie
@@ -77,6 +78,7 @@ class ViewMovieFragment : Fragment() {
                         putParcelable(
                             EXTRA_MOVIE, Movie(name, releaseYears, production, minutes, watched, stars, genre, url)
                         )
+                        putString(EXTRA_ACTION, if (navigationArgs.editMovie) "update" else "create" )
                     }
                 })
                 findNavController().navigateUp()
