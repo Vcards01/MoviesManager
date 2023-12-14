@@ -20,6 +20,7 @@ import br.edu.ifsp.scl.moviesmanager.model.entity.Movie.Companion.INT_INVALID_SC
 import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.EXTRA_ACTION
 import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.EXTRA_MOVIE
 import br.edu.ifsp.scl.moviesmanager.view.ListMovieFragment.Companion.MOVIE_FRAGMENT_REQUEST_KEY
+import com.google.android.material.snackbar.Snackbar
 
 class ViewMovieFragment : Fragment() {
 
@@ -37,7 +38,12 @@ class ViewMovieFragment : Fragment() {
             with(fvm) {
                 commonLayout.titleEt.setText(movie.title)
                 commonLayout.watchedCb.isChecked = movie.watched == INT_BOOL_TRUE
-                commonLayout.scoreEt.setText(movie.score.toString())
+                if(movie.score>=0){
+                    commonLayout.scoreEt.setText(movie.score.toString())
+                }else{
+                    commonLayout.scoreEt.setText("")
+                }
+
                 commonLayout.timeEt.setText(movie.duration.toString())
                 commonLayout.genreSp.setSelection(getGenrePosition(movie.genre))
                 commonLayout.releaseEt.setText(movie.releaseYears)
@@ -70,18 +76,30 @@ class ViewMovieFragment : Fragment() {
                         val minutes = commonLayout.timeEt.text.toString().toLong()
                         val watched =
                             if (commonLayout.watchedCb.isChecked) INT_BOOL_TRUE else INT_BOOL_FALSE
-                        val stars =
+                        var stars =
                             if (commonLayout.scoreEt.text.toString() != "") commonLayout.scoreEt.text.toString()
                                 .toInt() else INT_INVALID_SCORE
+                        if(stars>10){
+                            stars=10
+                        }
                         val genre = (commonLayout.genreSp.selectedView as TextView).text.toString()
                         val url = commonLayout.urlImgEt.text.toString()
                         putParcelable(
                             EXTRA_MOVIE, Movie(name, releaseYears, production, minutes, watched, stars, genre, url)
                         )
-                        putString(EXTRA_ACTION, if (navigationArgs.editMovie) "update" else "create" )
+                        var edit = navigationArgs.editMovie
+                        putString(EXTRA_ACTION, if (edit) "update" else "create" )
+                        findNavController().navigateUp()
+                    }
+                    else{
+                        Snackbar.make(
+                            fvm.root,
+                            "Preencha todos os campos",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
                     }
                 })
-                findNavController().navigateUp()
+
             }
         }
 
@@ -99,9 +117,7 @@ class ViewMovieFragment : Fragment() {
             fvm.commonLayout.titleEt.text.isEmpty() ||
             fvm.commonLayout.releaseEt.text.isEmpty() ||
             fvm.commonLayout.timeEt.text.isEmpty() ||
-            fvm.commonLayout.productionEt.text.isEmpty() ||
-            fvm.commonLayout.urlImgEt.text.isEmpty() ||
-            (fvm.commonLayout.scoreEt.text.isNotEmpty() && fvm.commonLayout.scoreEt.text.toString().toInt() > 10)
+            fvm.commonLayout.productionEt.text.isEmpty()
         )
             return false
         return true

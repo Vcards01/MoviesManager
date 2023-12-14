@@ -12,7 +12,7 @@
     <string name="salvar_filme">Salvar Filme</string>
     <string name="capa_do_filme">Capa do Filme</string>
     <string name="remover_filme">Remover Filme</string>
-    <string name="editar_filmes">Editar Filmes</string>
+    <string name="editar_filmes">Editar Filme</string>
     <string name="ordenar_alfabeto">ordenar_alfabeto</string>
     <string name="ordenar_numero">ordenar_numero</string>
     <string name="erro_ao_criar_titulo_j_existente">Erro ao criar, titulo já existente.</string>

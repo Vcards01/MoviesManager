@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/title"
-            android:textColor="@color/primary"
             android:textSize="24sp" />
 
 
@@ -23,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/primary"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -35,7 +33,6 @@
                 android:id="@+id/watchedCb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:shadowColor="@color/primary"
                 android:layout_gravity="center_vertical"
                 />
 
@@ -44,8 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/watched"
                 android:textSize="24sp"
-                android:layout_gravity="center"
-                android:textColor="@color/primary"/>
+                android:layout_gravity="center" />
         </LinearLayout>
 
         <TextView
@@ -54,7 +50,7 @@
             android:text="@string/score"
             android:textSize="24sp"
             android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            />
 
         <EditText
             android:id="@+id/scoreEt"
@@ -63,7 +59,6 @@
             android:digits="0123456789"
             android:inputType="number"
             android:minHeight="32dp"
-            android:textColor="@color/primary"
             android:textSize="20sp" />
 
         <TextView
@@ -71,14 +66,12 @@
             android:layout_height="wrap_content"
             android:text="@string/minutes"
             android:textSize="24sp"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            android:layout_marginTop="15dp"/>
 
         <EditText
             android:id="@+id/timeEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/primary"
             android:textSize="20sp" />
 
         <TextView
@@ -86,8 +79,7 @@
             android:layout_height="wrap_content"
             android:text="@string/genres"
             android:textSize="24sp"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            android:layout_marginTop="15dp" />
 
         <Spinner
             android:id="@+id/genreSp"
@@ -104,8 +96,7 @@
             android:layout_height="wrap_content"
             android:text="@string/releaseYears"
             android:textSize="24sp"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/releaseEt"
@@ -113,7 +104,6 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="4"
-            android:textColor="@color/primary"
             android:textSize="24sp" />
 
         <TextView
@@ -122,14 +112,14 @@
             android:text="@string/production"
             android:textSize="24sp"
             android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            />
 
         <EditText
             android:id="@+id/productionEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/primary"
+            
             android:textSize="20sp" />
 
         <TextView
@@ -138,7 +128,7 @@
             android:text="@string/urlImgTV"
             android:textSize="24sp"
             android:layout_marginTop="15dp"
-            android:textColor="@color/primary"/>
+            />
 
         <EditText
             android:id="@+id/urlImgEt"
@@ -146,7 +136,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:inputType="textUri"
-            android:textColor="@color/primary" />
+             />
 
         <Button
             android:id="@+id/saveBt"
@@ -156,6 +146,7 @@
             android:background="@color/secondary"
             android:text="@string/salvar_filme"
             android:layout_marginBottom="25dp"
+            android:textColor="@color/white"
             />
 
 

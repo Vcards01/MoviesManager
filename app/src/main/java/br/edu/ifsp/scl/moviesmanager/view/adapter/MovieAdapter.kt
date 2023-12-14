@@ -59,10 +59,19 @@ class MovieAdapter(
             with(holder) {
                 titleTv.text = movie.title
                 val context = urlTv.context
-                Glide.with(context).load(movieList[position].url).into(urlTv)
+                var url = "https://blog.springshare.com/wp-content/uploads/2010/02/nc-md.gif"
+                if(movieList[position].url.isNotEmpty()){
+                    url = movieList[position].url
+                }
+                Glide.with(context).load(url).into(urlTv)
                 genreTv.text = movie.genre
                 watchedTv.text =  if (movie.watched == INT_BOOL_TRUE) "Assistido" else "Não assistido"
-                scoreTv.text = movie.score.toString()
+                if (movie.score >=0){
+                    scoreTv.text = movie.score.toString() + " ⭐"
+                }else{
+                    scoreTv.text = ""
+                }
+
 
             }
         }

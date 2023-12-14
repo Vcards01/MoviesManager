@@ -68,7 +68,7 @@ class ListMovieFragment : Fragment(), OnMovieClickListener{
                 val action = bundle.getString(EXTRA_ACTION)
                 movie?.also { recivedMovie ->
                     movieList.indexOfFirst { it.title == recivedMovie.title }.also { position ->
-                        if (position != -1 && action.equals("edit")) {
+                        if (position != -1 && action.equals("update")) {
                             movieViewModel.update(recivedMovie)
                             movieList[position] = recivedMovie
                             movieAdapter.notifyItemChanged(position)
